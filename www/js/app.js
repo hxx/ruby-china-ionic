@@ -1,4 +1,4 @@
-angular.module('rubyChina', ['ionic', 'ionic-material', 'rubyChina.controllers'])
+angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'rubyChina.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
