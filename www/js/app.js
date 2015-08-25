@@ -50,6 +50,46 @@ angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'ngResource
         controller: 'topicsCtrl'
       }
     }
+  })
+
+  .state('app.excellent', {
+    url: '/excellent',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/topics.html',
+        controller: 'excellentCtrl'
+      }
+    }
+  })
+
+  .state('app.popular', {
+    url: '/popular',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/topics.html',
+        controller: 'popularCtrl'
+      }
+    }
+  })
+
+  .state('app.recent', {
+    url: '/recent',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/topics.html',
+        controller: 'recentCtrl'
+      }
+    }
+  })
+
+  .state('app.noreply', {
+    url: '/noreply',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/topics.html',
+        controller: 'noreplyCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

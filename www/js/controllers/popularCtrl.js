@@ -1,4 +1,4 @@
-rubyChina.controller('topicsCtrl',
+rubyChina.controller('popularCtrl',
 [
   '$scope',
   '$state',
@@ -12,7 +12,7 @@ rubyChina.controller('topicsCtrl',
       template: 'Loading...'
     });
 
-    $scope.viewTitle = "社区";
+    $scope.viewTitle = "热门话题";
 
     $scope.offset = 0;
     $scope.topics = [];
@@ -20,8 +20,10 @@ rubyChina.controller('topicsCtrl',
     $scope.loadMoreTopics = function() {
       Topics.get(
         {
+          type: 'popular',
           offset: $scope.offset,
           limit: 10,
+          timeout: 3000
         }
       )
       .$promise.then(
@@ -62,6 +64,7 @@ rubyChina.controller('topicsCtrl',
 
         Topics.get(
           {
+            type: 'popular',
             offset: $scope.offset,
             limit: 10,
             timeout: 3000
