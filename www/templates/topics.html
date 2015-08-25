@@ -1,0 +1,18 @@
+<ion-view view-title="社区">
+  <ion-content>
+    <ion-list>
+      <div class="card" ng-repeat="topic in topics">
+        <div class="item item-text-wrap item-avatar">
+          <!-- author avatar -->
+          <img ng-src="{{topic.user.avatar_url}}">
+          <h2>{{topic.title}}</h2>
+          <p>
+            <span class="topic-node-name">{{topic.node_name}}</span>
+            <span class="topic-user-name">{{topic.user.name}}</span><br>
+            最后由 <span class="topic-last-reply-name">{{topic.last_reply_user_login}}</span> 于<span class="topic-replied-at">{{topic.replied_at | timeago}}</span>回复
+          </p>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

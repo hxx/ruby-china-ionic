@@ -26,7 +26,7 @@ rubyChina.factory('loginService',
         .success(function (data) {
           $ionicLoading.hide();
           window.localStorage.setItem("access_token", data.access_token);
-          $state.go('app.playlists');
+          $state.go('app.topics');
           $cordovaToast.show('登录成功！', 'short', 'bottom');
         })
         .error(function (data, status) {

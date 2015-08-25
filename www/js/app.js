@@ -1,6 +1,6 @@
-angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'ngResource', 'rubyChina.controllers'])
+angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'ngResource'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicSideMenuDelegate) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -13,6 +13,16 @@ angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'ngResource
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    document.addEventListener('touchstart', function (event) {
+      // workaround for Android
+      if ($ionicSideMenuDelegate.isOpenLeft()) {
+        event.preventDefault();
+      }
+    });
+
+    // set rootUrl for API
+    window.localStorage.setItem("apiRootUrl", "https://ruby-china.org/api/v3");
   });
 })
 
@@ -32,12 +42,12 @@ angular.module('rubyChina', ['ionic', 'ionic-material', 'ngCordova', 'ngResource
     controller: 'loginCtrl'
   })
 
-  .state('app.playlists', {
-    url: '/playlists',
+  .state('app.topics', {
+    url: '/topics',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlists.html',
-        controller: 'PlaylistsCtrl'
+        templateUrl: 'templates/topics.html',
+        controller: 'topicsCtrl'
       }
     }
   });

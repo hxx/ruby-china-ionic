@@ -11,7 +11,7 @@ rubyChina.controller('loginCtrl',
       disableAnimate: true,
       disableBack: true
     });
-    $state.go("app.playlists");
+    $state.go("app.topics");
   }
   $scope.login = function(user) {
     loginService.login(user);
