@@ -7788,3 +7788,15 @@ a.button {
   font-style: normal; }
 
 /* END Black */
+.item-avatar > img:first-child {
+  max-height: 56px !important;
+  max-width: 56px !important; }
+
+.topic-node-name {
+  padding: 1px 5px;
+  color: #778087;
+  text-decoration: none;
+  background-color: #f5f5f5; }
+
+.topic-user-name, .topic-created-at, .topic-last-reply-name, .topic-replied-at {
+  color: #000; }

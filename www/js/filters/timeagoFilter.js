@@ -8,8 +8,6 @@ rubyChina.filter('timeago', function() {
     nowTime = (new Date()).getTime(),
     date = (new Date(input)).getTime(),
     strings= {
-      suffixAgo: "前",
-      suffixFromNow: "距离现在",
       seconds: "不到一分钟",
       minute: "一分钟",
       minutes: "%d 分钟",
@@ -29,9 +27,6 @@ rubyChina.filter('timeago', function() {
     hours = minutes / 60,
     days = hours / 24,
     years = days / 365,
-    separator = strings.wordSeparator === undefined ?  " " : strings.wordSeparator,
-
-    suffix = strings.suffixAgo;
 
     words = seconds < 45 && substitute(strings.seconds, Math.round(seconds), strings) ||
     seconds < 90 && substitute(strings.minute, 1, strings) ||
@@ -45,6 +40,6 @@ rubyChina.filter('timeago', function() {
     years < 1.5 && substitute(strings.year, 1, strings) ||
     substitute(strings.years, Math.round(years), strings);
 
-    return [words, suffix].join(separator);
+    return words
   };
 });

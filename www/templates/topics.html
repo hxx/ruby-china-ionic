@@ -8,8 +8,13 @@
           <h2>{{topic.title}}</h2>
           <p>
             <span class="topic-node-name">{{topic.node_name}}</span>
-            <span class="topic-user-name">{{topic.user.name}}</span><br>
-            最后由 <span class="topic-last-reply-name">{{topic.last_reply_user_login}}</span> 于<span class="topic-replied-at">{{topic.replied_at | timeago}}</span>回复
+            <span class="topic-user-name">{{topic.user.login}}</span>
+            <span ng-if="topic.replied_at === null">
+              于 <span class="topic-created-at">{{topic.created_at | timeago}}</span> 前发布
+            </span>
+            <div ng-if="topic.replied_at !== null">
+              最后由 <span class="topic-last-reply-name">{{topic.last_reply_user_login}}</span> 于 <span class="topic-replied-at">{{topic.replied_at | timeago}}</span> 前回复
+            </div>
           </p>
         </div>
       </div>
