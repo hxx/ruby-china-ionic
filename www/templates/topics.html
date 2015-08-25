@@ -1,5 +1,7 @@
 <ion-view view-title="社区">
   <ion-content>
+    <ion-refresher on-refresh="refreshTopics()">
+    </ion-refresher>
     <ion-list>
       <div class="card" ng-repeat="topic in topics">
         <div class="item item-text-wrap item-avatar">
@@ -19,5 +21,10 @@
         </div>
       </div>
     </ion-list>
+    <ion-infinite-scroll
+      ng-if="moreTopicsCanBeLoaded()"
+      on-infinite="loadMoreTopics()"
+      distance="1%">
+    </ion-infinite-scroll>
   </ion-content>
 </ion-view>
